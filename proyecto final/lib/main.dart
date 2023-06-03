@@ -14,33 +14,13 @@ class Page1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Color.fromARGB(255, 218, 227, 228),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Inicio());
       
-      body: Center(
-      
-        child: TweenA(),
-      ),
-    );
   }
 }
 
 
 
-class Page2 extends StatelessWidget {
-  const Page2({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(
-                'assets/images/aceder.jpg'), // Ruta de la imagen de fondo
-            fit: BoxFit.cover,
-          ),
-        ),
-      ),
-    );
-  }
-}
+
