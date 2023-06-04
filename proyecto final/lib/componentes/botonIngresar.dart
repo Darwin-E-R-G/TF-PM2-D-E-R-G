@@ -32,7 +32,7 @@ class botonIngresar extends StatelessWidget {
 
 Route _createRoute() {
   return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) => const login(),
+    pageBuilder: (context, animation, secondaryAnimation) => const home(),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
       const begin = Offset(0.0, 3.0);
       const end = Offset.zero;

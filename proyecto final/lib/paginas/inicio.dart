@@ -5,13 +5,14 @@ import '../componentes/avatar.dart';
 import '../componentes/botonIngresar.dart';
 import '../componentes/nombre.dart';
 
+
 // ignore: camel_case_types
 class _inicio extends State<Inicio> with SingleTickerProviderStateMixin {
   double targetValue = 24.0;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
+      home: Scaffold(        
         body: Center(
           child: AnimatedBackground(
             behaviour: ChildFlySpaceBehaviour(),
