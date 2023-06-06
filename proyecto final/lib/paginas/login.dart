@@ -1,10 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/rendering.dart';
 import 'package:tfinal/paginas/principal.dart';
 import 'package:tfinal/paginas/registra.dart';
 
+// ignore: camel_case_types
 class home extends StatefulWidget {
   const home({super.key});
 
@@ -25,7 +25,7 @@ class _homeState extends State<home> {
       future: _initializeFirebase(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
-          return login();
+          return const login();
         }
         return const Center(
           child: CircularProgressIndicator(),
@@ -58,6 +58,7 @@ class _loginState extends State<login> {
       user = userCredential.user;
     } on FirebaseException catch (e) {
       if (e.code == "user-not-found") {
+        // ignore: avoid_print
         print("no user found for that email");
       }
     }
@@ -72,18 +73,20 @@ class _loginState extends State<login> {
     TextEditingController _password = TextEditingController();
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:  const Color.fromARGB(255, 8, 92, 134),
+        backgroundColor: const Color.fromARGB(255, 8, 92, 134),
         title: const Text('Inicio'),
         actions: [
           GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const registroScreen()));
-                  },
-          child: const Icon(Icons.people_alt,size: 50,)
-          )
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const registroScreen()));
+              },
+              child: const Icon(
+                Icons.people_alt,
+                size: 50,
+              ))
         ],
       ),
       body: Container(
@@ -92,45 +95,14 @@ class _loginState extends State<login> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextField(
-              controller: _email,
-              keyboardType: TextInputType.emailAddress,
-              decoration: InputDecoration(
-                prefixIcon: const Icon(
-                  Icons.email
-                ),
-                labelText: "Email",
-                labelStyle: TextStyle(color: Colors.white.withOpacity(0.9)),
-                filled: true,
-                floatingLabelBehavior: FloatingLabelBehavior.never,
-                fillColor: Colors.white.withOpacity(0.3),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                    borderSide:
-                        const BorderSide(width: 0, style: BorderStyle.none)),
-              ),
+            const CircleAvatar(
+              backgroundImage: AssetImage('assets/images/logi.png'),
+              radius: 110,
             ),
-            const SizedBox(
-              height: 15,
-            ),
-            TextField(
-              controller: _password,
-              obscureText: true,
-              decoration: InputDecoration(
-                prefixIcon: const Icon(
-                  Icons.lock
-                ),
-                labelText: "password",
-                labelStyle: TextStyle(color: Colors.white.withOpacity(0.9)),
-                filled: true,
-                floatingLabelBehavior: FloatingLabelBehavior.never,
-                fillColor: Colors.white.withOpacity(0.3),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                    borderSide:
-                        const BorderSide(width: 0, style: BorderStyle.none)),
-              ),
-            ),
+            const SizedBox(height: 15,),
+            camposInicio(email: _email),
+            const SizedBox(height: 15,),
+            campoContrasena(password: _password),
             const SizedBox(height: 50),
             SizedBox(
               width: 300,
@@ -150,7 +122,7 @@ class _loginState extends State<login> {
                     // ignore: use_build_context_synchronously
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
                         builder: (context) => const principal()));
-                  }else {
+                  } else {
                     // ignore: use_build_context_synchronously
                     showDialog(
                         context: context,
@@ -174,29 +146,140 @@ class _loginState extends State<login> {
               ),
             ),
             const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const registroScreen()));
-                  },
-                  child: const Text(
-                    "REGISTRATE AQUI",
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 238, 234, 234),
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
-                  ),
-                )
-              ],
-            ),
+            const invitado(),
+            const SizedBox(height: 20),
+            const botonRegistro(),
           ],
         ),
       ),
+    );
+  }
+}
+
+// ignore: camel_case_types
+class invitado extends StatelessWidget {
+  const invitado({
+    super.key,
+  });
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 300,
+      child: RawMaterialButton(
+        fillColor: const Color.fromARGB(255, 22, 58, 107),
+        elevation: 0.0,
+        padding: const EdgeInsets.symmetric(vertical: 20),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+        ),
+        onPressed: () {
+          Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => const principal()));
+        },
+        child: const Text(
+          "Modo invitado ",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// ignore: camel_case_types
+class botonRegistro extends StatelessWidget {
+  const botonRegistro({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 300,
+      child: RawMaterialButton(
+        fillColor: const Color.fromARGB(255, 22, 58, 107),
+        elevation: 0.0,
+        padding: const EdgeInsets.symmetric(vertical: 20),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+        ),
+        onPressed: () {
+          Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => const registroScreen()));
+        },
+        child: const Text(
+          "Clicp para registrarte ",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// ignore: camel_case_types
+class campoContrasena extends StatelessWidget {
+  const campoContrasena({
+    super.key,
+    required TextEditingController password,
+  }) : _password = password;
+
+  final TextEditingController _password;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      controller: _password,
+      obscureText: true,
+      decoration: InputDecoration(
+        prefixIcon: const Icon(Icons.lock),
+        labelText: "password",
+        labelStyle: TextStyle(color: Colors.white.withOpacity(0.9)),
+        filled: true,
+        floatingLabelBehavior: FloatingLabelBehavior.never,
+        fillColor: Colors.white.withOpacity(0.3),
+        border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30.0),
+            borderSide: const BorderSide(width: 0, style: BorderStyle.none)),
+      ),
+    );
+  }
+}
+
+// ignore: camel_case_types
+class camposInicio extends StatelessWidget {
+  const camposInicio({
+    super.key,
+    required TextEditingController email,
+  }) : _email = email;
+
+  final TextEditingController _email;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        TextField(
+          controller: _email,
+          keyboardType: TextInputType.emailAddress,
+          decoration: InputDecoration(
+            prefixIcon: const Icon(Icons.email),
+            labelText: "Email",
+            labelStyle: TextStyle(color: Colors.white.withOpacity(0.9)),
+            filled: true,
+            floatingLabelBehavior: FloatingLabelBehavior.never,
+            fillColor: Colors.white.withOpacity(0.3),
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(30.0),
+                borderSide:
+                    const BorderSide(width: 0, style: BorderStyle.none)),
+          ),
+        ),
+      ],
     );
   }
 }

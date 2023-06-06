@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:animated_background/animated_background.dart';
 
-import '../componentes/avatar.dart';
-import '../componentes/botonIngresar.dart';
-import '../componentes/nombre.dart';
+
+import '../componentes/componetes_incio/avatar.dart';
+import '../componentes/componetes_incio/botonIngresar.dart';
+import '../componentes/componetes_incio/nombre.dart';
 
 
 // ignore: camel_case_types
@@ -21,7 +22,7 @@ class _inicio extends State<Inicio> with SingleTickerProviderStateMixin {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  avatar(),
+                  avatar(radio: 110,),
                   SizedBox(height: 100.0),
                   nombre(),
                   SizedBox(height: 300.0),
