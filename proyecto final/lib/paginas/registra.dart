@@ -70,7 +70,7 @@ class _registroScreen extends State<registroScreen> {
                 const SizedBox(height: 20,),
                 reusableTextField("Enter Password", Icons.lock_outlined, true,
                     _passwordTextController),
-                const SizedBox(height: 20,),
+                const SizedBox(height: 30,),
                 firebaseUIButton(context, "Registrate", () {
                   FirebaseAuth.instance
                       .createUserWithEmailAndPassword(

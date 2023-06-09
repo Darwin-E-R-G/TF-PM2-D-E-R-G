@@ -8,6 +8,12 @@ class skill extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Container(
+        width: double.infinity,
+        color: const Color.fromARGB(179, 223, 216, 216),
+        child: const Column(children: [Text("skill")]),
+      ),
+    );
   }
 }

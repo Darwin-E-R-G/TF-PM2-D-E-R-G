@@ -9,30 +9,39 @@ class perfil extends StatelessWidget {
     return Scaffold(
       body: Container(
         width: double.infinity,
-        color: Colors.blueGrey,
-        child: const Column(
-          children: [
-            SizedBox(
-              height: 20,
-            ),
-            Text("Perfil",
-                style: TextStyle(
-                    fontSize: 60,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white)),
-            SizedBox(
-              height: 30,
-            ),
-            Text(
-              "Tecnico en sistemas y actualmente culminado la tecnologia en gestion de redes y sistemas ",
-              style: TextStyle(
-                  fontSize: 30, color: Color.fromARGB(255, 181, 236, 218)),
-            ),
-            Text(
-                "teleinformatico, en el INSTITUTO SUPERIOR DE EDUCACIÓN RURAL - ISER ",
-                style: TextStyle(
-                    fontSize: 30, color: Color.fromARGB(255, 181, 236, 218))),
-          ],
+        color: const Color.fromARGB(179, 223, 216, 216),
+        child: const Padding(
+          padding: EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              SizedBox(
+                height: 10,
+              ),
+              Text("Perfil",
+                  style: TextStyle(
+                      fontSize: 70,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black)),
+              SizedBox(
+                height: 30,
+              ),
+              Text(
+                  "𝘛𝘦𝘤𝘯𝘪𝘤𝘰 𝘦𝘯 𝘴𝘪𝘴𝘵𝘦𝘮𝘢𝘴 𝘺 𝘢𝘤𝘵𝘶𝘢𝘭𝘮𝘦𝘯𝘵𝘦  𝘤𝘶𝘭𝘮𝘪𝘯𝘢n𝘥𝘰 mi tecnología en gestión de redes y sistemas teleinformáticas, en el INSTITUTO SUPERIOR DE EDUCACIÓN RURAL - ISER.   ",
+                  style: TextStyle(
+                    fontSize: 28,
+                    color: Colors.black,
+                  )),
+              SizedBox(
+                height: 5,
+              ),
+              Text(
+                  "Institución Tecnológica de carácter público sujeta a inspección y vigilancia del Ministerio de Educación Nacional.",
+                  style: TextStyle(
+                    fontSize: 28,
+                    color: Colors.black,
+                  )),
+            ],
+          ),
         ),
       ),
     );

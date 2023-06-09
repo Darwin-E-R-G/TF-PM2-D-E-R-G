@@ -89,9 +89,11 @@ class _loginState extends State<login> {
               ))
         ],
       ),
+      backgroundColor: Colors.blueGrey,
       body: Container(
-        color: Colors.blueGrey,
+        
         padding: const EdgeInsets.all(15),
+        child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -103,7 +105,7 @@ class _loginState extends State<login> {
             camposInicio(email: _email),
             const SizedBox(height: 15,),
             campoContrasena(password: _password),
-            const SizedBox(height: 50),
+            const SizedBox(height: 60),
             SizedBox(
               width: 300,
               child: RawMaterialButton(
@@ -151,6 +153,7 @@ class _loginState extends State<login> {
             const botonRegistro(),
           ],
         ),
+      ),
       ),
     );
   }

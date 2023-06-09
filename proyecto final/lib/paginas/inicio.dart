@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:animated_background/animated_background.dart';
 
-
 import '../componentes/componetes_incio/avatar.dart';
 import '../componentes/componetes_incio/botonIngresar.dart';
 import '../componentes/componetes_incio/nombre.dart';
 
-
 // ignore: camel_case_types
 class _inicio extends State<Inicio> with SingleTickerProviderStateMixin {
-  double targetValue = 24.0;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(        
+      home: Scaffold(
         body: Center(
           child: AnimatedBackground(
             behaviour: ChildFlySpaceBehaviour(),
@@ -22,11 +19,13 @@ class _inicio extends State<Inicio> with SingleTickerProviderStateMixin {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  avatar(radio: 110,),
+                  avatar(
+                    radio: 110,
+                  ),
                   SizedBox(height: 100.0),
                   nombre(),
-                  SizedBox(height: 300.0),
-                  botonIngresar(),
+                  SizedBox(height: 200.0),
+                  botonIngresar()
                 ],
               ),
             ),
@@ -36,8 +35,6 @@ class _inicio extends State<Inicio> with SingleTickerProviderStateMixin {
     );
   }
 }
-
-
 
 class Inicio extends StatefulWidget {
   const Inicio({super.key});

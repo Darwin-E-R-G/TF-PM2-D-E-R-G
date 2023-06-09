@@ -19,7 +19,7 @@ class botonIngresar extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color.fromARGB(255, 61, 98, 161),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0),
+          borderRadius: BorderRadius.circular(500.0),
         ),
       ),
       child: const Text(

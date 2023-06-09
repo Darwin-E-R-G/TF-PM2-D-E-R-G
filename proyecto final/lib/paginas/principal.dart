@@ -5,6 +5,7 @@ import 'package:tfinal/componentes/paginas/pagecontacto.dart';
 import 'package:tfinal/componentes/paginas/pageperfil.dart';
 import '../componentes/componetes_incio/avatar.dart';
 import '../componentes/paginas/pageSkill.dart';
+
 import 'login.dart';
 
 // ignore: camel_case_types
@@ -21,20 +22,20 @@ class _principalState extends State<principal> {
   final List<Widget> _paginas = [
     const perfil(),
     const skill(),
-    const experiencia(),
     const estududios(),
+    const experiencia(),
     const contacto(),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 8, 92, 134),
+        backgroundColor: const Color.fromARGB(249, 6, 7, 7),
         elevation: 10,
         // ignore: sort_child_properties_last
         leading: SizedBox(
           child: RawMaterialButton(
-              fillColor: const Color.fromARGB(255, 8, 92, 134),
+              fillColor: const Color.fromARGB(249, 7, 7, 7),
               elevation: 0.0,
               padding: const EdgeInsets.symmetric(vertical: 8),
               shape: RoundedRectangleBorder(
@@ -46,7 +47,7 @@ class _principalState extends State<principal> {
               },
               child: const Icon(
                 Icons.exit_to_app_outlined,
-                size: 40,
+                size: 30,
               )),
         ),
         title: const Text(
@@ -66,23 +67,23 @@ class _principalState extends State<principal> {
           items: const [
             BottomNavigationBarItem(
                 icon: Icon(Icons.home),
-                backgroundColor: Color.fromARGB(255, 8, 92, 134),
+                backgroundColor: Color.fromRGBO(8, 8, 8, 0.98),
                 label: ("Perfil")),
             BottomNavigationBarItem(
                 icon: Icon(Icons.engineering_rounded),
-                backgroundColor: Color.fromARGB(255, 8, 92, 134),
+                backgroundColor: Color.fromRGBO(10, 10, 10, 0.98),
                 label: "Skill"),
             BottomNavigationBarItem(
                 icon: Icon(Icons.school),
-                backgroundColor: Color.fromARGB(255, 8, 92, 134),
+                backgroundColor: Color.fromRGBO(14, 15, 15, 0.98),
                 label: "Estudios"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.business_center_rounded ),
-                backgroundColor: Color.fromARGB(255, 8, 92, 134),
+                icon: Icon(Icons.business_center_rounded),
+                backgroundColor: Color.fromRGBO(7, 7, 7, 0.98),
                 label: "Experincia"),
             BottomNavigationBarItem(
                 icon: Icon(Icons.contact_mail_sharp),
-                backgroundColor: Color.fromARGB(255, 8, 92, 134),
+                backgroundColor: Color.fromRGBO(10, 10, 10, 0.98),
                 label: "Contactenos"),
           ]),
     );
