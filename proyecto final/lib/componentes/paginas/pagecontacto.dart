@@ -12,45 +12,44 @@ class _contactoState extends State<contacto> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:const Color.fromARGB(179, 223, 216, 216),
-      body:SizedBox(
+      backgroundColor: const Color.fromARGB(179, 223, 216, 216),
+      body: SizedBox(
         child: SingleChildScrollView(
           child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
-          child: Column(children: [
-            const SizedBox(
-              height: 80,
-            ),
-            const Text(
-              "Contactanos",
-              style: TextStyle(
-                  fontSize: 30,
-                  color: Colors.black87,
-                  fontWeight: FontWeight.w900),
-            ),
-            const SizedBox(
-              height: 60,
-            ),
-            reusableTextField("Nombre", Icons.person_outline),
-            const SizedBox(
-              height:25,
-            ),
-            reusableTextField("Email", Icons.email_sharp),
-            const SizedBox(
-              height: 25,
-            ),
-            reusableTextField("Telefono", Icons.phonelink_ring_sharp),
-            const SizedBox(
-              height: 32,
-            ),
-            const mensaje_contacto(),
-            const SizedBox(
-              height: 70,
-            ),
-            
-            const boton_contacto(),
-          ]),
-        ),
+            padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
+            child: Column(children: [
+              const SizedBox(
+                height: 80,
+              ),
+              const Text(
+                "Contactanos",
+                style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.black87,
+                    fontWeight: FontWeight.w900),
+              ),
+              const SizedBox(
+                height: 60,
+              ),
+              reusableTextField("Nombre", Icons.person_outline),
+              const SizedBox(
+                height: 25,
+              ),
+              reusableTextField("Email", Icons.email_sharp),
+              const SizedBox(
+                height: 25,
+              ),
+              reusableTextField("Telefono", Icons.phonelink_ring_sharp),
+              const SizedBox(
+                height: 32,
+              ),
+              const mensaje_contacto(),
+              const SizedBox(
+                height: 70,
+              ),
+              const boton_contacto(),
+            ]),
+          ),
         ),
       ),
     );
@@ -66,20 +65,23 @@ class boton_contacto extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
+        showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return const AlertDialog(
+                title: Text("Mensaje enviado"),
+              );
+            });
       },
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color.fromARGB(255, 27, 26, 26).withOpacity(0.3),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5.0),
-          
         ),
       ),
       child: const Text(
         'Enviar',
-        style: TextStyle(
-          fontSize: 40.0,
-          fontWeight: FontWeight.w300
-        ),
+        style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.w300),
       ),
     );
   }

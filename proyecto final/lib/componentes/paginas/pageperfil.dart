@@ -26,7 +26,7 @@ class perfil extends StatelessWidget {
                 height: 30,
               ),
               Text(
-                  "𝘛𝘦𝘤𝘯𝘪𝘤𝘰 𝘦𝘯 𝘴𝘪𝘴𝘵𝘦𝘮𝘢𝘴 𝘺 𝘢𝘤𝘵𝘶𝘢𝘭𝘮𝘦𝘯𝘵𝘦  𝘤𝘶𝘭𝘮𝘪𝘯𝘢n𝘥𝘰 mi tecnología en gestión de redes y sistemas teleinformáticas, en el INSTITUTO SUPERIOR DE EDUCACIÓN RURAL - ISER.   ",
+                  "Técnico en sistemas y actualmente culminando la tecnología en gestión de redes y sistemas teleinformáticas, en el INSTITUTO SUPERIOR DE EDUCACION RURAL – ISER.    ",
                   style: TextStyle(
                     fontSize: 28,
                     color: Colors.black,
