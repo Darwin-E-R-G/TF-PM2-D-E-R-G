@@ -12,7 +12,10 @@ class listaEstudio extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: const [
-        Text("Estudios ", style: TextStyle(fontSize: 60, fontWeight: FontWeight.w500),),
+        Text(
+          "Estudios ",
+          style: TextStyle(fontSize: 60, fontWeight: FontWeight.w500),
+        ),
         SizedBox(
           height: 60,
         ),
@@ -32,8 +35,8 @@ class listaEstudio extends StatelessWidget {
           subtitle: Align(
             alignment: Alignment.centerLeft,
             child: Padding(
-              padding: EdgeInsets.only(left: 30, top: 10),
-              child: Text('"BACHILLER"',
+              padding: EdgeInsets.only(left: 15, top: 10),
+              child: Text('"BACHILLER TECNICO"',
                   style: TextStyle(
                       fontSize: 20,
                       color: Colors.black,
