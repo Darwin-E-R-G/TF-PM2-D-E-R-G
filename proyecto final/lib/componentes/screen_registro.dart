@@ -17,7 +17,7 @@ TextField reusableTextField(String text, IconData icon, bool isPasswordType,
       labelStyle: TextStyle(color: Colors.white.withOpacity(0.9)),
       filled: true,
       floatingLabelBehavior: FloatingLabelBehavior.never,
-      fillColor: Colors.white.withOpacity(0.3),
+      fillColor: const Color.fromARGB(255, 27, 26, 26).withOpacity(0.3),
       border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.0),
           borderSide: const BorderSide(width: 0, style: BorderStyle.none)),
@@ -43,7 +43,7 @@ Container firebaseUIButton(BuildContext context, String title, Function onTap) {
             if (states.contains(MaterialState.pressed)) {
               return Colors.black12;
             }
-            return const Color.fromARGB(255, 22, 58, 107);
+            return Colors.black12;
           }),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)))),

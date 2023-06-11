@@ -15,7 +15,7 @@ class skill extends StatelessWidget {
           children: [
             Text(
               "!!SKILLS!!",
-              style: TextStyle(fontSize: 60),
+              style: TextStyle(fontSize: 60, fontWeight: FontWeight.w500),
             ),
             SizedBox(
               height: 20,

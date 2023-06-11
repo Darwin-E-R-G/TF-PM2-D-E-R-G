@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:tfinal/paginas/login.dart';
-import '../componentes/wit.dart';
+import 'package:tfinal/paginas_principales/login.dart';
+import '../componentes/screen_registro.dart';
 
 // ignore: camel_case_types
 class registroScreen extends StatefulWidget {
@@ -20,13 +20,14 @@ class _registroScreen extends State<registroScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       backgroundColor: const Color.fromARGB(225, 236, 233, 238),
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 8, 92, 134),
+        backgroundColor: Colors.black,
         elevation: 0,
         leading: SizedBox(
           child: RawMaterialButton(
-              fillColor: const Color.fromARGB(255, 8, 92, 134),
+              fillColor: Colors.black,
               elevation: 0.0,
               padding: const EdgeInsets.symmetric(vertical: 10),
               shape: RoundedRectangleBorder(
@@ -46,8 +47,7 @@ class _registroScreen extends State<registroScreen> {
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
       ),
-      body: Container(
-          color: Colors.blueGrey,
+      body: SizedBox(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: SingleChildScrollView(
@@ -56,8 +56,9 @@ class _registroScreen extends State<registroScreen> {
             child: Column(
               children: <Widget>[
                 const CircleAvatar(
-                  backgroundImage: AssetImage('assets/images/logi.png'),
-                  radius: 110,
+                  backgroundImage: AssetImage('assets/images/registro.png'),
+                  backgroundColor: Color.fromARGB(151, 236, 233, 238),
+                  radius: 120,
                 ),
                 const SizedBox(
                   height: 20,

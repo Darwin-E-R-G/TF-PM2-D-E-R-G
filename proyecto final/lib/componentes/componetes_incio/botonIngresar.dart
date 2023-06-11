@@ -2,7 +2,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import '../../paginas/login.dart';
+import '../../paginas_principales/login.dart';
 
 // ignore: camel_case_types
 class botonIngresar extends StatelessWidget {

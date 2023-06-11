@@ -1,8 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:tfinal/paginas/principal.dart';
-import 'package:tfinal/paginas/registra.dart';
+import 'package:tfinal/paginas_principales/inicio.dart';
+import 'package:tfinal/paginas_principales/principal.dart';
+import 'package:tfinal/paginas_principales/registra.dart';
 
 // ignore: camel_case_types
 class home extends StatefulWidget {
@@ -72,8 +73,26 @@ class _loginState extends State<login> {
     // ignore: no_leading_underscores_for_local_identifiers
     TextEditingController _password = TextEditingController();
     return Scaffold(
+      backgroundColor: const Color.fromARGB(226, 236, 233, 238),
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 8, 92, 134),
+        leading: SizedBox(
+          child: RawMaterialButton(
+              fillColor: Colors.black,
+              elevation: 0.0,
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+              ),
+              onPressed: () {
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => const Inicio()));
+              },
+              child: const Icon(
+                Icons.arrow_back_ios,
+                size: 30,
+              )),
+        ),
+        backgroundColor: const Color.fromARGB(249, 6, 7, 7),
         title: const Text('Inicio'),
         actions: [
           GestureDetector(
@@ -89,71 +108,75 @@ class _loginState extends State<login> {
               ))
         ],
       ),
-      backgroundColor: Colors.blueGrey,
       body: Container(
-        
         padding: const EdgeInsets.all(15),
         child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const CircleAvatar(
-              backgroundImage: AssetImage('assets/images/logi.png'),
-              radius: 110,
-            ),
-            const SizedBox(height: 15,),
-            camposInicio(email: _email),
-            const SizedBox(height: 15,),
-            campoContrasena(password: _password),
-            const SizedBox(height: 60),
-            SizedBox(
-              width: 300,
-              child: RawMaterialButton(
-                fillColor: const Color.fromARGB(255, 22, 58, 107),
-                elevation: 0.0,
-                padding: const EdgeInsets.symmetric(vertical: 20),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                onPressed: () async {
-                  User? user = await loginUser(
-                      email: _email.text,
-                      password: _password.text,
-                      context: context);
-                  if (user != null) {
-                    // ignore: use_build_context_synchronously
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (context) => const principal()));
-                  } else {
-                    // ignore: use_build_context_synchronously
-                    showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return const AlertDialog(
-                            title: Text("ERROR"),
-                            content: SingleChildScrollView(
-                              child: Text("Verifica tus datos"),
-                            ),
-                          );
-                        });
-                  }
-                },
-                child: const Text(
-                  "INICIAR SESION ",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const CircleAvatar(
+                backgroundImage: AssetImage('assets/images/logi.png'),
+                backgroundColor: Color.fromARGB(225, 236, 233, 238),
+                radius: 120,
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              camposInicio(email: _email),
+              const SizedBox(
+                height: 15,
+              ),
+              campoContrasena(password: _password),
+              const SizedBox(height: 60),
+              SizedBox(
+                width: 300,
+                child: RawMaterialButton(
+                  fillColor:
+                      const Color.fromARGB(255, 27, 26, 26).withOpacity(0.3),
+                  elevation: 0.0,
+                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  onPressed: () async {
+                    User? user = await loginUser(
+                        email: _email.text,
+                        password: _password.text,
+                        context: context);
+                    if (user != null) {
+                      // ignore: use_build_context_synchronously
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) => const principal()));
+                    } else {
+                      // ignore: use_build_context_synchronously
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const AlertDialog(
+                              title: Text("ERROR"),
+                              content: SingleChildScrollView(
+                                child: Text("Verifica tus datos"),
+                              ),
+                            );
+                          });
+                    }
+                  },
+                  child: const Text(
+                    "INICIAR SESION ",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                    ),
                   ),
                 ),
               ),
-            ),
-            const SizedBox(height: 20),
-            const invitado(),
-            const SizedBox(height: 20),
-            const botonRegistro(),
-          ],
+              const SizedBox(height: 20),
+              const invitado(),
+              const SizedBox(height: 20),
+              const botonRegistro(),
+            ],
+          ),
         ),
-      ),
       ),
     );
   }
@@ -169,7 +192,7 @@ class invitado extends StatelessWidget {
     return SizedBox(
       width: 300,
       child: RawMaterialButton(
-        fillColor: const Color.fromARGB(255, 22, 58, 107),
+        fillColor: const Color.fromARGB(255, 27, 26, 26).withOpacity(0.3),
         elevation: 0.0,
         padding: const EdgeInsets.symmetric(vertical: 20),
         shape: RoundedRectangleBorder(
@@ -202,7 +225,7 @@ class botonRegistro extends StatelessWidget {
     return SizedBox(
       width: 300,
       child: RawMaterialButton(
-        fillColor: const Color.fromARGB(255, 22, 58, 107),
+        fillColor: const Color.fromARGB(255, 27, 26, 26).withOpacity(0.3),
         elevation: 0.0,
         padding: const EdgeInsets.symmetric(vertical: 20),
         shape: RoundedRectangleBorder(
@@ -244,7 +267,7 @@ class campoContrasena extends StatelessWidget {
         labelStyle: TextStyle(color: Colors.white.withOpacity(0.9)),
         filled: true,
         floatingLabelBehavior: FloatingLabelBehavior.never,
-        fillColor: Colors.white.withOpacity(0.3),
+        fillColor: const Color.fromARGB(255, 27, 26, 26).withOpacity(0.3),
         border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30.0),
             borderSide: const BorderSide(width: 0, style: BorderStyle.none)),
@@ -275,7 +298,7 @@ class camposInicio extends StatelessWidget {
             labelStyle: TextStyle(color: Colors.white.withOpacity(0.9)),
             filled: true,
             floatingLabelBehavior: FloatingLabelBehavior.never,
-            fillColor: Colors.white.withOpacity(0.3),
+            fillColor: const Color.fromARGB(255, 27, 26, 26).withOpacity(0.3),
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30.0),
                 borderSide:
